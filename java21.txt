@@ -1,0 +1,513 @@
+Q)Write a java program to display array elements in spiral form?
+
+input:
+	1 2 3 
+        4 5 6
+        7 8 9
+
+output:
+	1 2 3 6 9 8 7 4 5
+
+ex:
+----
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        int[][] matrix = {
+            			{1, 2, 3},
+            			{4, 5, 6},
+            			{7, 8, 9}
+        		};
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int top = 0;
+        int bottom = rows - 1;
+        int left = 0;
+        int right = cols - 1;
+
+    while (true) 
+	{
+            if (left > right) 
+	        {
+                break;
+            }
+
+            // Print top row
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            top++;
+
+            if (top > bottom) {
+                break;
+            }
+
+            // Print right column
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            right--;
+
+            if (left > right) {
+                break;
+            }
+
+            // Print bottom row
+            for (int i = right; i >= left; i--) 
+	        {
+                System.out.print(matrix[bottom][i] + " ");
+            }
+            bottom--;
+    
+            if (top > bottom) {
+                break;
+            }
+
+            // Print left column
+            for (int i = bottom; i >= top; i--) 
+	        {
+                System.out.print(matrix[i][left] + " ");
+            }
+            left++; 
+	}//while loop  
+    }
+}
+
+Anonymous array
+================
+Sometimes we will declare an array without name such type of nameless array is called anonymous array.
+
+The main objective of anonymous array is just for instance use.
+
+We can declare anonymous array as follow.
+
+syntax:
+	new int[]{10,20,30};
+	new int[][]{{10,20,30},{40,50,60}};
+
+ex:
+----
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+		//caller method
+		sum(new int[]{10,20,30});
+
+	}
+	//callie method 
+	public static void sum(int[] arr)
+	{
+		int sum=0;
+		for(int i:arr)
+		{
+			sum+=i;
+		}
+		System.out.println(sum);
+	}
+}
+
+ex:
+----
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+		//caller method
+		System.out.println(sum(new int[]{10,20,30}));
+
+	}
+	//callie method 
+	public static int sum(int[] arr)
+	{
+		int sum=0;
+		for(int i:arr)
+		{
+			sum+=i;
+		}
+		return sum;
+	}
+}
+
+OOPS
+=====
+OOPS stands for Object Oriented Programming System/Structure.
+
+Object oriented technology
+--------------------------
+A technology which provides very good environment to represent our data in the form objects is called object oriented technology.
+
+A technology said to be object oriented if it supports following features.
+
+ex:
+	class
+	object 
+	abstraction
+	encapsulation
+	inheritance &
+	polymorphism
+
+
+class
+=======
+A class is a collection of data members and behaviours.
+
+Here data members means variables or fields or properties.
+
+Here bahaviour means methods or actions or characteristics.
+
+In general, a class is a collection of variables and methods.
+
+It is a blue print of an object.
+
+We can declare a class as follow.
+
+syntax:
+	optional 
+	|
+	modifier class class_name <extends> parent_classname 
+		                  <implements> interface_name
+	{
+		-
+		- // variables and methods 
+		-
+	}
+
+A class will accept following modifiers.
+ex:
+	default 
+	public
+	final
+	abstract 
+
+Q)What is the difference between default class and public class?
+
+default class
+------------
+If we declare any class as default then we can access that class within the package.
+ex:
+	class A 
+	{
+		-
+		- //logic 
+		-
+	}
+
+public class
+-------------
+If we declare any class as public then we can access that class within the package and outside the package.
+ex:
+	public class A 
+	{
+		-
+		- //logic 
+		-
+	}
+
+Q)What is final class?
+
+If we declare any class as final then creating child class is not possible.
+ex:
+	final class A 
+	{
+	}
+	class B extends A  --> invalid 
+	{	
+	}
+
+
+Q)What is abstract class?
+
+If we declare any class as abstract then creating object for that class is not possible.
+ex:
+	abstract class A 
+	{
+		-	
+	}
+	A a=new A(); --> invalid 	
+
+
+
+object 
+=========
+It is a instance of a class.
+
+Here instance means allocating memory for our data members.
+
+It is a outcome of a blue print.
+
+We can create object as follow.
+
+syntax:
+------
+	Class_Name  reference_variable=new  Constructor();
+
+ex:
+	Test t=new Test();
+
+It is possible to create more then one object in a single class.
+
+Memory space will be created when create an object.
+
+ex:
+
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+
+		System.out.println(t1); //Test@Hexadecimal
+		System.out.println(t2); //Test@Hexadecimal
+		System.out.println(t3); //Test@Hexadecimal
+
+	}
+}
+
+hashCode()
+============
+It is a method present in Object class.
+
+For every object JVM will create a unique identification number i.e hash code.
+
+In order to read hash code of an object we need to use hashCode() method.
+
+Diagram: java21.1
+
+toString()
+===========
+It is a method present in Object class.
+
+Whenever we are trying to display any object reference directly or indirectly toString() method will be executed.
+
+
+Q)What is Object class?
+
+It is a parent class for every java class.
+
+It is present in java.lang package.
+
+Object class contains following methods.
+
+ex:
+	cmd> javap   java.lang.Object 
+
+	getClass()
+	wait()
+	notify()
+	notifyAll()
+	clone()
+	hashCode()
+	toString()
+	and etc.
+
+ex:
+---
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+		Test t=new Test();
+		System.out.println(t.getClass()); //class Test
+	}
+}
+
+Data Hiding
+===========
+Our internal data should not go out directly.
+
+It means outside perform must not access our data directly.
+
+Using private modifier we can implements data hiding.
+
+The main objective of data hiding is to provide security.
+
+ex:
+	class  Account
+	{
+		private double balance;	
+		-
+		-
+	}
+
+
+
+Abstraction
+=============
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+Using interfaces and abstract classes we can implements abstraction.
+
+The best of abstraction is GUI(Graphical User Interface) ATM machine.Where bank people will hide internal implementation and high lights the set of services like banking , withdrawl, mini statement and etc.
+
+The main advantages of abstraction are.
+
+1) It gives security because it wil hide internal implementation from the    outsider.
+
+2) Enhancement becomes more easy because without effecting enduser they can
+  perform any changes in our internal system.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) IT improves maintainability of an application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

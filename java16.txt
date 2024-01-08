@@ -1,0 +1,486 @@
+Q)Write a java program to find out list of prime numbers from 1 to 100?
+
+prime numbers : 
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 
+29, 31, 37, 41, 43, 47, 53, 59, 
+61, 67, 71, 73, 79, 83, 89, 97.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int n=2;n<=100;n++)
+		{
+			boolean flag=true;
+
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+Java Recursion
+===============
+A method which call itself for many number of times is called recursion.
+
+Recursion is similar to loopings.
+
+Whenever we use recursion , we should not use loops.
+
+
+Q)Write a java program to display 10 natural numbers without using loops?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		display(1);
+	}
+
+	//callie method
+	public static void display(int i)
+	{
+		if(i<=10)
+		{
+			System.out.print(i+" "); // 1 2 3 4 5 6 7 8 9 10
+
+			display(i+1);
+		}
+	}
+}
+
+Q)Write a java program to find out factorial of a given number using recursion?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();//5
+
+		//caller method
+		System.out.println(factorial(n));
+	}
+
+	//callie method
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+
+		if(n==0)
+			return 1;
+
+		return  n*factorial(n-1);
+	}
+}
+
+Q)Write a java program to find out Nth-element of fibonacci series ?
+
+fibonacci series : 0 1 1 2 3 5 8 
+
+input:
+	4
+
+output:
+	3
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //4
+
+		//caller method
+		System.out.println(fib(n));
+	}
+
+	//callie method
+	public static int fib(int n)
+	{
+		if(n==1 || n==2)
+			return 1;
+
+		if(n==0)
+			return 0;
+
+		return fib(n-1)+fib(n-2);
+	}
+}
+
+Q)Write a java program to perform sum of two numbers without using arithmetic operator?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt(); //5
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt(); //10
+
+		//caller method
+		System.out.println(sum(a,b));
+
+	}
+
+	//callie method
+	public static int sum(int a,int b)
+	{
+		if(a==0)
+			return b;
+
+		return sum(--a,++b);
+	}
+}
+
+Q)Write a java program to find out given number is palindrome or not using recursion?
+
+input:
+	121
+
+output:
+	It is palidrome number
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int num=121;
+		int original=num;
+		int reversed=0;
+
+		//caller 
+		if(isPalindrome(num,original,reversed))
+			System.out.println("It is palindrome number");
+		else
+			System.out.println("It is not palindrome number");
+	}
+
+	//callie method
+	public static boolean isPalindrome(int num,int original,int reversed)
+	{
+		if(num==0)
+		{
+			return original==reversed;
+		}
+		
+		reversed= reversed*10+num%10;//
+
+		return isPalindrome(num/10,original,reversed);
+
+	}
+}
+
+LOOP Patterns
+=============
+
+1)
+1 1 1 1 
+2 2 2 2
+3 3 3 3 
+4 4 4 4 
+
+ex:
+---
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+2)
+1 2 3 4
+1 2 3 4
+1 2 3 4
+1 2 3 4
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+3)
+* * * * 
+* * * *
+* * * *
+* * * * 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+4)
+4 4 4 4 
+3 3 3 3
+2 2 2 2
+1 1 1 1 
+
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+5)
+A A A A 
+B B B B
+C C C C 
+D D D D 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{	
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+6)
+D D D D 
+C C C C 
+B B B B
+A A A A 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='D';i>='A';i--)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{	
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+Assignment
+==========
+1)
+
+1 1 1 
+1 0 1 
+1 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

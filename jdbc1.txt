@@ -1,0 +1,233 @@
+JDBC
+=====
+As if now it is known as trademark.
+
+But earlier it is known as Java Database Connectivity.
+
+RAM is a temperory storage device or medium.
+
+During the program execution our data will store in RAM.
+
+Once the program exeuction is completed we will loss the data.
+
+To overcome this limitation we are making our application writing the data into 
+files or database softwares.
+
+Files and database softwares act like a performance storage medium or device.
+
+Persistence
+===========
+The process of storing and managing the data for a long period of time is called
+persistence.
+
+Important terminologies
+=======================
+1) Persistence store 
+--------------------
+	It is a place where we can store and manage the data for a long 
+	period of time is called persistence store.
+	ex:
+		Files
+		Database softwares 
+
+2) Persistence data 
+------------------
+	Data of a persistence store is called persistence data.
+	ex:
+		records
+		tables 
+
+3) Persistence operations 
+---------------------
+	Insert,Update,Delete,Select,Create and etc are called persistence operations.
+	In realtime this operations are also known as CURD operation, CRUD operation
+	or SCUD operation.
+	ex:
+		C - create	S - select 
+		U - update 	C - create 	
+		R - read	U - update 
+		D - delete 	D - delete 
+
+4) Pesistence logic
+--------------------
+	A logic which is capable to perform persistence operations is called 
+	persistence logic.
+	ex:
+		JDBC Code 
+		Hibernate code
+		Ibatis code 
+		IOStream 
+
+5) Persistence technology
+---------------------------
+	A technology which is used to develop persistence logics is called 
+	persistence technology.
+	ex:
+		JDBC
+		Hibernate 
+		EJB
+		and etc
+
+Q)What is JDBC?
+
+JDBC is a persistence technology which is used to develop persistence logics having 
+the capability to perform persistence operations on persistence data of a persistence
+store.
+
+
+Note:
+------
+				IOStream 
+	JavaApp	---------------------------------------------- Files 
+			Serialization/Deserialization 
+
+
+				JDBC Code 
+	JavaApp ---------------------------------------------- Database S/W 
+
+
+Serialization
+--------------
+The process of take the data from object and storing in a file is called serialization.
+
+In general , Converting from object state to file state is called Serialization.
+
+Diagram: jdbc1.1
+
+In serialization , object will not store in a file.Object data will store in a file.
+
+Diagram: jdbc1.1
+
+
+
+Deserialization
+------------------
+The process of taking the data from file and repreasting an object is called 
+Deserialization.
+
+In general, converting file state to object state.
+
+Diagram: jdbc1.2
+
+
+Limitations with files as persistence store
+===========================================
+> We can store limited amount of data.
+
+> There is no security.
+
+> Fetching the data with multiple conditions is not possible.
+
+> It does not show an application with relationships.
+
+> It does not allow us to apply constraints i.e primary key,foreign key,not null and etc.
+
+> Updation and Deletion of data can't be done directly.
+
+> Merging and comparision of data can't be done easily.
+
+Advantages of Database as persistence store
+=========================================
+> We can store unlimited amount of data.
+
+> There is a security.
+
+> Fetching the data with multiple condition is possible.
+
+> It shows an applicaiton with relationships.
+
+> It allows us to apply constraints.
+
+> Updation and Deletion of data can be done directly.
+
+> Merging and comparision of data can be done easily.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

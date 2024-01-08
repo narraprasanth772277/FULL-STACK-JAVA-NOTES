@@ -1,0 +1,599 @@
+Note:
+-----
+If number of iterations are known by the user then we need to use for loop.
+
+If number of iterations are not known by the user then we need to use while loop.
+
+If number of iterations are not known by the user but code must execute atleast for one time then we need to use do while loop.
+
+
+4)Jump statement
+=================
+Jump statement is used to jump from one section of code to another section.
+
+We have two types of jump statements.
+
+1) break statement 
+
+2) continue statement 
+
+1) break statement 
+--------------------
+It is used to break the execution of loops and switch case.
+
+For conditional statement we can use if condition.
+
+syntax:
+------
+	break; 
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+			System.out.print(i+" ");//1 2 3 4
+		}
+	}
+}
+
+2) continue statement 
+---------------------
+A continue stmt is used to continue the execution of loop.
+
+For conditional statement we can use if condition.
+
+syntax:
+	continue;
+
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E  continue outside of loop
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E  continue outside of loop
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" ");// 1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+Arrays
+========
+In a normal variable we can store only one value at time.
+
+To store more then one value in a single variable then we need to use Arrays.
+
+Array is a collection of homogeneous data elements.
+
+The main advantages of arrays are 
+
+1) We can represent multiple elements by using single variable name.
+   ex:
+	int[] arr={10,20,30};
+
+2)Performance point of view arrays are recommanded to use.
+
+The main disadvantages of arrays are
+
+1) Arrays are fixed in size, once if we create an array there is no chance 
+   of increasing or decreasing the size of an array.
+
+2) To use array concept in advanced we should know what is the size of an
+   array which is also not possible.
+
+In java, arrays are classified into three types.
+
+1)Single Dimensional Array 
+
+2)Double Dimensional Array / Two Dimensional Array 
+
+3)Multi Dimensional Array / Three Dimensional Array
+
+
+Array Declaration
+-----------------
+At the time of array declaration we should not specify array size.
+
+				     Arrays
+       |-------------------------------|-----------------------|
+Single Dimensional Array   Double Dimensional Array   Multi Dimensional Array
+
+int[] arr;			int[][] arr;		int[][][] arr;
+int  []arr;			int [][]arr;		int  [][][]arr;
+int  arr[];			int  arr[][];		int arr[][][];
+				int[]  []arr;		int[][] []arr;
+				int[]  arr[];		int[][] arr[];
+				int  []arr[];		int[]  [][]arr;
+							int[]  arr[][];
+							int[]  []arr[];
+							int  [][]arr[];
+							int  []arr[][];
+
+
+Array Creation
+================
+In java, every array consider as an object.Hence we will use new operator to create an array.
+
+Diagram: java18.1
+
+Rules to constructor an array
+------------------------------
+Rule1:
+-----
+At the time of array creation compulsary we need to specify array size.
+ex:
+	int[] arr=new int[3];  //valid 
+	int[] arr=new int[]; //C.T.E array dimension missing 
+
+Rule2:
+------
+It is legal to have an array size with zero.
+ex:
+	int[] arr=new int[0];
+	System.out.println(arr.length);//0
+
+Rule3:
+------
+We can't give negative number as an array size otherwise we will get 
+one exception called NegativeArraySizeException.
+ex:
+	int[] arr=new int[-3];
+	System.out.println(arr.length); // R.E NegativeArraySizeException 
+
+Rule4:
+-------
+The allowed datatype for an array size is byte,short,int and char.If we take other datatypes then we will get compile time error.
+
+ex:
+	byte b=10;
+	int[] arr=new int[b];	
+
+	int[] arr=new int['a'];
+
+	int[] arr=new int[10.5d];// C.T.E 
+
+Rule5:
+-----
+The maximum length we can take for an array size is maximum length of int .
+ex:
+	int[] arr=new int[2147483647];
+
+Array Initialization
+-------------------
+At the time of array creation ,every array elements will be initialized with default values.
+
+If we are not satisfied with default values then we can change with customized values.
+	
+
+Diagram: java18.2
+
+
+Array Declaration, creation and Intialization using single line
+---------------------------------------------------------------
+
+int[] arr;
+arr=new int[3];
+arr[0]=10;
+arr[1]=20;
+arr[2]=30;        ===>  int[] arr={10,20,30};
+
+		  ===>  char[] carr={'a','b','c'};
+
+		  ===>  String[] sarr={"hi","hello","bye"};
+
+
+Q)What is the difference between length and length() method?
+
+length
+------
+It is a final variable which is applicable for arrays.
+
+It will return size of an array.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr=new int[6];
+
+		System.out.println(arr.length);//6
+	}
+}
+
+length()
+---------
+It is a predefined method which is applicable for String object.
+
+It will return number of characters present in String.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+
+		System.out.println(str.length());//7
+	}
+}
+
+Single Dimensional Array
+-------------------------
+Array which contains only one dimension is called single dimensional array.
+
+syntax:					optional 
+					|
+	datatype[] variable_name=initialization;
+
+ex:
+	int[] arr;
+
+
+Q)Write a java program to accept array elements and display them?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the array size :");
+		int size=sc.nextInt();//5
+
+		int[] arr=new int[size];
+
+		//inserting elements
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println("Enter the element :");
+			arr[i]=sc.nextInt();
+		}
+		
+		//display elements
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+approach2
+---------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={10,20,30,40};
+
+
+		//display elements
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+Approach3
+----------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={10,20,30,40};
+
+		//for each loop
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Q)Write a java program to display sum of array elements?
+
+input:
+	4 7 1 3 9 2 
+
+output:
+	26
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,7,1,3,9,2};
+
+		int sum=0;
+		for(int ele:arr)
+		{
+			sum+=ele;
+		}
+		System.out.println(sum);
+	}
+}
+
+Q)Write a java program to display array elements in reverse order?
+
+input:
+	4 7 1 3 9 2 
+
+output:
+	2 9 3 1 7 4 
+	
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,7,1,3,9,2};
+
+
+		for(int i=arr.length-1;i>=0;i--)
+		{
+			System.out.print(arr[i]+" ");
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,468 @@
+Q)Write a java program to perform right rotation of a string?
+
+input:
+	str = ihubtalent 	
+	cnt = 2 
+
+output:
+	ubtalentih
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+		int cnt=2;
+
+		String str1=str.substring(0,cnt);
+		String str2=str.substring(cnt,str.length());
+
+		System.out.println(str2+str1);
+	}
+}
+
+Q)Write a java program to perform left rotation of a string?
+
+input:
+	str = ihubtalent 	
+	cnt = 2 
+
+output
+	ntihubtale
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+		int cnt=2;
+
+		String str1=str.substring(0,str.length()-2);
+
+		String str2=str.substring(str.length()-2,str.length());
+
+		System.out.println(str2+str1);
+	}
+}
+
+Q)Write a java program to display the strings starting with Uppercase letter?
+
+input:
+	This  is Java class For freshers
+
+output:
+	This Java For 
+
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class For freshers";
+
+		String[] sarr=str.split(" ");
+
+		String result="";
+
+		//for each loop
+		for(String s:sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				result+=s+" ";
+			}
+		}
+		System.out.println(result);
+	}
+}
+
+StringBuffer
+============
+If our content change frequently then it is never recommanded to use String object because for every change a new object will be created.
+
+To overcome this limitation, Sun Micro system introduced StringBufffer.
+
+In StringBuffer is mutable and all the changes will be done in a  single object only.
+
+constructors
+------------
+
+1)StringBuffer sb=new StringBuffer();
+------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If capacity reaches to maximum capacity then new capacity will be created with below formulea.
+ex:
+	capacity = current_capacity+1*2;
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+
+		System.out.println(sb.capacity()); //16
+
+		sb.append("abcdefghijklmnop");
+
+		System.out.println(sb.capacity()); //16
+
+		sb.append("qr");
+
+		System.out.println(sb.capacity()); // 16+1*2 = 34
+
+	}
+}
+
+2)StringBuffer sb=new StringBuffer(int initialcapacity);
+-----------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+
+		System.out.println(sb.capacity()); //19
+
+
+	}
+}
+
+3)StringBuffer sb=new StringBuffer(String s);
+----------------------------------------------
+It will create StringBuffer object equivalent to String.
+Here capacity will be created with below formulea.
+ex:
+	capacity = s.length()+16;
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+
+		System.out.println(sb.capacity()); //s.length() + 16 =23
+
+	}
+}
+
+Q) Write a java program to display reverse of a string?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+
+		String rev="";
+		
+		StringBuffer sb=new StringBuffer(str);
+
+		rev=sb.reverse().toString();
+
+		System.out.println(rev);
+
+	}
+}
+
+Q)Write a java program to find out given string is palindrome or not?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+
+		String rev="";
+		
+		StringBuffer sb=new StringBuffer(str);
+
+		rev=sb.reverse().toString();
+
+		if(str.equals(rev))
+			System.out.println("It is  a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+
+	}
+}
+
+Q) Write a java program to remove duplicate characters from String?
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String :");	
+		String str=sc.nextLine();
+
+		StringBuffer sb=new StringBuffer();
+		str.chars().distinct().forEach(c->sb.append((char)c));
+		System.out.println(sb);
+	}
+}
+
+
+StringBuilder
+=============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+StringBuffer				StringBuilder
+------------				--------------
+All the methods present in StringBuffer	No method present in StringBuilder
+are synchronized.			is synchronized.
+
+At a time only one thread is allowed to Multiple threads are allowed to 	
+execute.Hence we can achieve thread 	execute.Hence we can't achieve 
+safety.					thread safety.
+
+Waiting time of a thread will increase	There is no waiting time of a thread
+effectively performance is low.		effecitively performance is high.
+
+It is introduced in 1.0v.		It is introduced in 1.5v.
+
+Note:
+------
+If our content not change frequently then it is recommanded to use String object.
+
+If our content change frequently where thread safety is required then we need to use StringBuffer.
+
+If our content change frequently where thread safety is not required then we need to use StringBuilder.
+
+StringTokenizer
+================
+StringTokenizer is a class which is present in java.util package.
+
+It is used to tokenize the string irrespective of regular expression.
+
+We can create StringTokenizer object as follow.
+ex:
+	StringTokenizer st=new StringTokenizer(String s,RegularExpress reg);
+
+StringTokenizer class contains following five methods.
+ex:
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Object nextElement()
+	public int countTokens()	
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+
+		System.out.println(st.countTokens());//4
+	}
+}
+Note:
+-----
+	Default regular expression is space.
+
+ex:2
+-----
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		System.out.println(st.countTokens());//4
+	}
+}
+
+ex:3
+-----
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreTokens())
+		{
+			String s=st.nextToken();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+----
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+Assignment
+===========
+Q)Write a java program to find out number of uppercase letters ,lowercase letters , digits , words and spaces?
+
+input:
+	This Is Java Class29
+
+output:
+	uppercase letters	: 4	
+	lowercase letters       : 11 
+	digits			: 2 
+	words			: 4
+	spaces 			: 3
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class29";
+
+		int upper=0,lower=0,digit=0,space=0,word=1;
+
+		char[] carr=str.toCharArray();
+
+		for(char c:carr)
+		{
+			if(c>='A' && c<='Z')
+				upper++;
+			else if(c>='a' && c<='z')
+				lower++;
+			else if(c>='0' && c<='9')
+				digit++;
+			else if(c==' ')
+			{
+				space++;
+				word++;
+			}
+		}
+		System.out.println("Uppercase letters : "+upper);
+		System.out.println("Lowercase letters : "+lower);
+		System.out.println("Digit : "+digit);
+		System.out.println("space : "+space);
+		System.out.println("word  : "+word);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

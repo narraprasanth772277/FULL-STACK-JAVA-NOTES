@@ -1,0 +1,52 @@
+laptop install
+java 1.8
+eclipse, spring source tool --ID
+my sql---server--- database
+
+
+
+sum of the number:
+
+datatype of the var, var name , var value
+datatype varname= value
+   int a = 13;
+   int b = 10;
+   int c = a+b;
+
+sub of the number:
+
+  int a = 10;
+  int b = 12;
+  int c = a-b;
+
+mul of the numbers:
+
+   int a = 12;
+   double b =3.5;
+   double c = a*b; 
+
+(int only takes integer values but double takes both int and decimal values)
+
+
+operators 
++add
+-sub
+*mul
+/div
+%mod
+
+div of the numbers 
+
+int a = 2;
+int b = 3;
+int c = a/b;
+
+
+powerbill
+
+cunits , prunits , unitcost , tbill 
+
+int cunits = 300;
+int prunits = 200;
+double unitcost = 6.5;
+double tbill = (cunits-prunits)*unitcost;

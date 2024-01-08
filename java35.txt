@@ -1,0 +1,378 @@
+Q)Write a java program to display distinct and duplicate elements from given array?
+
+input:
+	4 5 7 1 3 2 2 5 7 9 1
+
+output:
+        distinct elements : 4 5 7 1 3 2 9	
+	duplicate elements : 2 5 7 1
+
+ex:
+  
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,7,1,3,2,2,5,7,9,1};
+
+		Set<Integer> unique=new LinkedHashSet<Integer>();
+		Set<Integer> duplicate=new LinkedHashSet<Integer>();
+
+		//for each loop
+		for(int i:arr)
+		{
+			if(!unique.add(i))
+			{
+				duplicate.add(i);
+			}
+			unique.add(i);
+		}
+		System.out.println(unique);
+		System.out.println(duplicate);
+	}
+}
+			
+Q)Types of data structures in java?
+
+We have two types of data structures in java.
+
+Diagram: java35.1
+
+Multithreading
+==============
+Q)What is the difference between Thread and Process?
+
+Thread
+------
+It is a leight weight sub process.
+We can run multiple threads concurently.
+One thread can communicate with another thread.
+ex:
+	class is one thread 
+	constructor is one thread
+	block is one thread 
+	and etc.
+
+Process
+--------
+A process is a collection of threads.
+We can run multiple processes concurently.
+One process can't communicate with another process.
+ex:
+	typing the notes in notepad is one process
+	downloading a file from internet is one process
+	taking a class by using zoom metting is one processs.
+
+Multitasking
+=============
+Executing several task simultenously such concept is called multitasking.
+
+We have two types of multitasking.
+
+1)Thread based multitasking 
+-------------------------
+Executing several task simultenously where each task is a same part of a program.
+
+It is best suitable for programmatic level.
+
+
+2)Process based multitasking
+-----------------------------
+Executing several task simultenously where each task is a independent process.
+
+It is best suitable for OS level.
+
+Multithreading
+==============
+Executing several threads simultenously such concept is called multithreading.
+
+In multithreading only 10% of work should be done by a programmer and 90% of work will be done by JAVA API.
+
+The main important application area of multithreading area.
+
+1) To implements multimedia graphics
+
+2) To develop video games 
+
+3) To develop animations 
+
+
+In how many ways we can create a thread in java
+====================================================
+There are two ways to create a thread in java.
+
+1) By extending Thread class 
+
+2) By implementing Runnable interface 
+
+1) By extending Thread class 
+----------------------------
+class MyThread extends Thread 
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+
+		//start a thread
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+		
+	}
+}
+
+case1: Thread Schedular
+------------------------
+If multiple threads are waiting for execution which thread should execute will decided by thread schedular.
+
+What algorithm,mechanism or behaviour used by thread schedular is depends upon JVM vendor.
+
+Hence we can't expect any execution order of exact output in multithreading.
+
+case2: difference between t.start() and t.run() method
+--------------------------------------------------------------------
+If we invoke t.start() method then a new thread will be created which is responsible to execute run() method automatically.
+
+ex:
+
+class MyThread extends Thread 
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+
+		//start a thread
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+		
+	}
+}
+
+If we invoke t.run() method then no new thread will be created but run() method will execute just like normal method.
+ex:
+
+class MyThread extends Thread 
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+
+		t.run();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+		
+	}
+}
+
+case 3: if won't override run() method
+-----------------------------------
+If we won't override run() method then Thread class run() method will execute automatically.
+
+Thread class run() method is empty implementation.
+
+ex:
+
+class MyThread extends Thread 
+{
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread 
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+		
+	}
+}
+
+case4: If we overload run() method
+-----------------------------------
+If we overload run() method then Thread class start() method always execute run() method with no argument method only.
+
+ex:
+
+class MyThread extends Thread 
+{
+	public void run(int i)
+	{
+		System.out.println("int-arg method");
+	}
+	public void run()
+	{
+		System.out.println("0-arg method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread 
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+		
+	}
+}
+
+case5: Life cycle of a thread 
+------------------------------
+
+Diagram: java35.2
+
+1)Once if we create a thread our thread will be in new or born state.
+
+2)Once if we call t.start() method then our thread goes to ready/runnable state.
+
+3)If thread schedular allocates to CPU then our threads enters to running state.
+
+4)Once the run() method execution is completed then out thread goes to dead state.
+
+
+
+
+2) By implementing Runnable interface 
+-------------------------------------
+class MyRunnable implements Runnable 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyRunnable r=new MyRunnable();
+		Thread t=new Thread(r); // r is a targatable interface 
+		t.start();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

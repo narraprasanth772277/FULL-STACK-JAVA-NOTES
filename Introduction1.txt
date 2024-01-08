@@ -1,0 +1,117 @@
+Institute Name : IHUB TALENT MANAGEMENT 
+
+Website        : www.ihubtalent.com 
+
+Location       : Ameerpet , Hyderabad.
+
+Trainer Name   : Niyaz Sir 
+
+Experience     : 13+ years of experience in development and training.
+
+Course Name    : Full Stack Java Development Course With AWS 
+
+Batch No       : IH-JAVA-025
+
+Mode 	       : Online / Offline 
+
+Duration       : 100 working days 
+
+Recorded Videos : Free 
+
+Aptitute classes : Free
+
+Soft skills classes : Free 
+
+Project   :  Employee Management System 
+		>  ReactJS (FrontEnd)
+		>  Spring Boot (BackEnd)
+		>  MySQL
+
+		Full Stack Java Development Course with AWS
+			(Full Stack Developer)
+				|
+	|--------------------------------------------------|
+FrontEnd Technologies 				BackEnd Technologies 
+(FrontEnd Developer)				(BackEnd Developer)
+
+> HTML5						> Core Java
+> CSS3						> Advanced Java
+> JavaScript						> JDBC
+> Bootstrap5						> Servlets
+> React/ReactJS 					> JSP 
+						> Oracle DB 
+							> SQL
+							> PL/SQL 
+						> Frameworks 
+							> Spring Boot
+							> Microservices
+						> AWS 
+
+Programming language
+=====================
+A language which is used to communicate between user and computer is  called programming language.
+
+Programming language acts like a mediator or interface between user and computer.
+
+Diagram: introduction1.1
+
+
+Java
+======
+Object oriented programming language.
+Platform independent programming language
+Case sensitive programming language.
+Strongly typed checking language.
+High level programming language.
+Open Source programming language.
+
+Java software --> JDK software --> Sun Micro System , Oracle  Corporation 
+1995 --> James Gosling 
+
+C
+====
+Procedure oriented programming language.
+Platform dependent programming language.
+Case sensitive programming language.
+Loosely typed checking language.
+Middle level language (LOW + HIGH).
+
+
+Interview Questions
+===================
+Q) What is Java ?
+
+Java is a object oriented, platform independent, case sensitive, strongly typed checking, high level ,open source programming language developed by James Gosling in the year of 1995.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

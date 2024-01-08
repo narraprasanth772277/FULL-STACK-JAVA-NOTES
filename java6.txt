@@ -1,0 +1,310 @@
+Steps to setup Java Environmental variables
+===========================================
+step1:
+-----
+	Make sure JDK 1.8 version installed successfully.
+
+step2:
+------
+	Copy "lib" directory from java_home folder.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\lib
+
+step3:
+------
+	Paste "lib" directory in environmental variables.
+	ex:
+		Right click to My PC/Mycomputer --> properties -->
+		Advanced system settings --> environrmental variables -->
+		
+		User variables --> click to new button --> 
+		variable Name :  CLASSPATH
+		variable value : C:\Program Files\Java\jdk1.8.0_181\lib;
+		---> ok. 
+
+		System variables  --> click to new button -->
+		variable Name :  path 
+		variable value : C:\Program Files\Java\jdk1.8.0_181\bin;
+		---> ok ---> ok ---> ok.
+
+step4:
+-----
+	Check the environmental setup done perfectly or not.
+	ex:
+		cmd> javap 
+		cmd> java -version 
+
+
+Steps to develop first application in java
+============================================
+step1:
+------
+	Make sure JDK 1.8 version installed successfully.
+
+step2:
+------
+	Make sure environmental setup done perfectly.
+
+step3:
+------
+	Create a "javaprog" folder inside 'E' drive.
+
+step4:
+------
+	Open the notepad and develop simple Hello World.
+	ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("Hello World");
+		}	
+	}	
+
+step5:
+----
+	Save java program with same name as class name inside javaprog folder.
+
+step6:
+------
+	Open the command prompt from javaprog folder.
+
+step7:
+------
+	compile the java program by using below command.
+	ex:
+		javac   Test.java 
+			  |
+			file name 
+
+step8:
+-----
+	Run the java program by using below command.
+	ex:
+		java    Test
+			|
+			classname 
+
+Internal Architecture of JVM
+=============================
+Diagram: java6.1
+
+Java  application contains java code instructions.Once if we compile , java code instructions converts to byte code instructions in .class file.
+
+JVM will invoke one module called classloader or sub system to load all the byte code instructions from .class file. The work of classloader is to check these byte code instructions are proper or not.If they are not proper , it will refuse the execution.If they are proper , it will allocate the memory.
+
+We have five types of memories in java.
+
+1)Method Area 
+------------- 
+Method are contains code of a class, code of a method and code of a variable.
+
+2)Heap area 
+------------
+Our object creations will store in heap area.
+
+Note:
+------
+Whenever JVM loads byte code instructions from .class file , it will create method area and heap area automatically.
+
+3)Java Stack 
+------------
+Java methods will execute in method area but to execute those methods we required some memory , that memory will be allocated in java stack.
+
+4)PC Register 
+-----------
+It is a program counter register which is used to track the address of an instructions.
+
+5)Native Method Stack
+--------------------
+Java methods will execute in method area.
+Similarly native methods will execute in native method stack.
+Native methods we can't execute directly.we required a program called Native method interface.
+
+Execution engine
+----------------
+Execution engine contains interpreter and JIT compiler.
+
+Whenever JVM loads byte code instructions from .class file , it will use interpreter and jit compiler simultenously.
+
+Interpreter is used to execute our program line by line procedure.
+
+JIT compiler is used to increase the execution speed of our program.
+
+
+Interview Questions
+====================
+Q)How many memories are there in java?
+
+We have five memories in java.
+
+1)Method Area 
+2)Heap 
+3)Java Stack 
+4)PC Register 
+5)Native Method Stack
+
+Q)What is Native method in java?
+
+A method which is developed by using some other language is called native method.
+
+
+Q)What is JIT compiler?
+
+It is a part of a JVM which is used to increase the execution speed of our program. 
+
+
+Q)How many classloaders are there in java?
+
+We have three predefined classloaders in java.
+
+1)Bootstrap classloader (It loads rt.jar file)
+
+2)Extension classloader (It loads all the jar files from ext folder)
+
+4)Application/System classloader (It loads the .class file from CLASSPATH)
+
+Q)What is package?
+
+A package is a collection of classes and interfaces.
+
+
+Q)What is Literal ?
+
+A value which is assign to a variable is called literal.
+
+A value which is not change during the program execution is called literal.
+
+ex:
+	int  i = 10;
+	 |   |	 |___value of a variable | Literal 
+	 |   |_______variable name | identifier 		
+	 |___________datatype | keyword 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

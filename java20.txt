@@ -1,0 +1,640 @@
+Q)Write a java program to seggreate array elements?
+
+input:
+	0 1 1 0 0 1 0 1 1 0 
+
+output:
+	0 0 0 0 0 1 1 1 1 1 
+
+approach1
+-----------
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={0,1,1,0,0,1,0,1,1,0};
+
+		Arrays.sort(arr);//0 0 0 0 0 1 1 1 1 1 
+
+		for(int ele:arr)
+		{
+			System.out.print(ele+" ");
+		}
+	}
+}
+
+approach2
+--------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={0,1,1,0,0,1,0,1,1,0};
+
+		int[] resArr=new int[arr.length];
+
+		//inserting '0' 
+		//for each loop
+		int j=0;
+		for(int ele:arr)
+		{
+			if(ele==0)
+			{
+				resArr[j++]=ele;
+			}
+		}
+
+		//inserting '1'
+		while(j<arr.length)  
+		{
+			resArr[j++]=1;
+		}
+
+		//display the elements
+		for(int ele:resArr)
+		{
+			System.out.print(ele+" ");
+		}
+	}
+}
+
+Q)Write a java program to concatinate two arrays and display them in sorting order?
+
+input:
+	arr1 = 5 4 1 3 2 
+
+	arr2 = 9 6 7 8 10
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1 ={5,4,1,3,2}; 
+
+		int[] arr2 ={9,6,7,8,10};
+
+		int size1=arr1.length;
+		int size2=arr2.length;
+
+		arr1=Arrays.copyOf(arr1,size1+size2);
+
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+		}
+
+		//sorting
+		Arrays.sort(arr1);
+
+		//for each loop
+		for(int ele:arr1)
+		{
+			System.out.print(ele+" ");
+		}
+	}
+}
+
+Q)Write a java program to delete first occurance from given array?
+
+input:
+	arr = 4 3 9 6 3 7 3 1 2
+
+	ele = 3
+
+output:
+	4 9 6 3 7 3 1 2 
+
+ex:
+	
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr ={4,3,9,6,3,7,3,1,2};
+
+		int[] resArr=new int[arr.length-1];
+
+		int ele=3;
+
+		int cnt=0,j=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==ele && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			resArr[j++]=arr[i];
+		}
+
+		//display
+		for(int element:resArr)
+		{
+			System.out.print(element+" ");
+		}
+
+	}
+}
+
+Q)Write a java program to insert given element on given position?
+
+input:
+	arr = 4  7  9  1  2  6  
+
+	ele = 5
+
+	position = 3
+
+output:
+	4 7 9 5 1 2 6 
+
+ex:
+---
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,7,9,1,2,6}; 
+		int ele = 5;
+		int position = 3;
+
+		arr=Arrays.copyOf(arr,arr.length+1);
+
+		for(int i=arr.length-1;i>=position;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+		arr[position]=ele;
+	
+		//display
+		for(int element:arr)
+		{
+			System.out.print(element+" ");
+		}
+	}
+}
+
+
+Two Dimensional Array
+======================
+Two dimensional array is a combination of rows and columns.
+
+Two dimensional array is implemented based on array of arrays approach but not in matrix form.
+
+The main objective of two dimensional array is memory utilization.
+
+Two dimensional array is used to develop matrix type of applications, business oriented applications ,gaming applications and etc.
+
+We can declare two dimensional array as follow.
+
+syntax:
+
+	datatype[][] variable_name=new datatype[rows][cols];
+
+ex:
+	int[][] arr=new int[3][3];
+
+	Here we can store 9 elements.
+
+
+Q)Write a java program to display array elements in matrix form?
+
+ex:
+---
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();//3
+
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt();//3
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+Q)Write a java program to display square of a matrix ?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();//3
+
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt();//3
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j] * arr[i][j] +" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+
+Q)Write a java program to find out sum of diagonal elements?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();//3
+
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt();//3
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display the elements
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i==j)
+				{
+					sum+=arr[i][j];
+				}
+			}	
+		}
+		System.out.println("sum of diagonal elements is ="+sum);
+	}
+}
+
+Q)Write a java program to find out sum of upper triangle elements?
+
+ex:
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();//3
+
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt();//3
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display the elements
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i<j)
+				{
+					sum+=arr[i][j];
+				}
+			}	
+		}
+		System.out.println("sum of upper triangle elements is ="+sum);
+	}
+}
+
+
+Q)Write a java program to find out sum of lower triangle elements?
+
+ex:
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();//3
+
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt();//3
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display the elements
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i>j)
+				{
+					sum+=arr[i][j];
+				}
+			}	
+		}
+		System.out.println("sum of lower triangle elements is ="+sum);
+	}
+}
+
+Assignment
+==========
+Q)Write a java program to display array elements in spiral form?
+
+input:
+	1 2 3 
+        4 5 6
+        7 8 9
+
+output:
+	1 2 3 6 9 8 7 4 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,213 @@
+Comments in java
+=================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommanded to use comments in our regular programming.
+
+Comments will not displayed in output because compiler will not compile the comments.
+
+We have two types of comments in java.
+
+1)Single line comment 
+--------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+
+2)Multiple line comment 
+---------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			-
+			-
+			-
+		*/
+
+ex:
+----
+//class declaration 
+class Demo
+{
+	//main method 
+	public static void main(String[] args)
+	{
+		//variable declaration 
+		int i=10;
+	
+		//output stmt 
+		System.out.println(i);
+	}
+}
+
+Diagram: java3.1
+
+
+
+Project
+========
+A project is a collection of modules.
+ex:
+	registration module
+	admin module
+	payment module
+	login module
+	report generation module and etc.
+
+Every project contains two domains.
+
+1)Technical Domain 
+----------------
+	Using which technology we developed our project.
+	ex:
+		Java
+
+2)Functional Domain 
+-------------------
+	It describes state of a project.
+	ex:
+		Healthcare domain 
+		Banking domain 
+		Insuarance domain 
+		ERP domain 
+		and etc.	
+
+
+Q)What is difference between JDK , JRE and JVM ?
+
+JDK
+----
+JDK stands for Java Development Kit.
+
+It is a installable software which consist Java Runtime Environment(JRE), Java Virtual Machine(JVM), compiler (javac), interpreter (java), an archiever(.jar), document generator (javadoc) and other tools needed for java application development.
+
+
+JRE
+----
+JRE stands for Java Runtime Environment.
+
+JRE provides very good environment to run java applications only.
+
+
+JVM
+----
+JVM stands for Java Virtual Machine.
+
+It is an interpreter which is used to execute our program line by line procedure.
+
+Diagram: java3.2
+
+
+
+Q)Is java platform dependent or independent?
+
+ Java is a platform independent
+
+
+
+Q)Is JVM platform dependent or independent?
+ 
+  JVM is platform dependent.
+
+
+Q)List out some features of Java?
+
+We have few important features in java.
+
+1)Simple 
+2)Object oriented 
+3)Platform independent 
+4)Architecture Neutral 
+5)Portable 
+6)Robust 
+7)Multithreaded 
+8)Dynamic 
+9)Distributed 
+10)Higly secured
+and etc.
+
+
+Q)Who is the responsible to destroy the objects in java?
+
+	Garbage Collector 
+
+Q)Who is the responsible to execute the java program?
+
+	JVM 
+
+
+Q)In how many ways we can call garbage collector?
+
+There are two ways to call garbage collector in java.
+
+1)System.gc() 
+
+2)Runtime.getRuntime().gc()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

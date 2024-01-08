@@ -1,0 +1,391 @@
+Q)Write a java program to accept one string and display it?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the string :");
+		String str=sc.next();
+
+		System.out.println("Welcome :"+str);
+
+	}
+}
+
+
+approach2
+----------
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the string :");
+		String str=sc.nextLine();
+
+		System.out.println("Welcome :"+str);
+
+	}
+}
+
+Q)Write a java program to display reverse of a given number?
+
+input:
+	hello
+output:	
+	olleh 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";	
+
+		//convert string to char array
+		char[] carr=str.toCharArray();
+
+		//reading reverse
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+
+		System.out.println(rev);
+	
+	}
+}
+
+Q)Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+output:
+	It is a palindrome string 
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";	
+
+		//convert string to char array
+		char[] carr=str.toCharArray();
+
+		//reading reverse
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+
+		if(str.equals(rev))
+			System.out.println("It is palindrome string");
+		else
+			System.out.println("It is not palindrome string");
+	
+	}
+}
+
+
+Q)Write a java program to display reverse of a sentence?
+
+input:
+	This Is Java Class
+
+output:
+	Class Java Is This 
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class";	
+
+		String[] sarr=str.split(" ");
+
+		//reading reverse
+		String rev="";
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			rev+=sarr[i]+" ";
+		}
+		System.out.println(rev);
+	}
+}
+
+Q)Write a java program to display reverse of a word in a sentence?
+
+Input:
+	This Is Java Class 
+
+output:
+	sihT sI avaJ ssalC 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class";	
+
+		String[] sarr=str.split(" ");
+
+		String rev="";
+
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray();
+
+			//reading reverse
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				rev+=carr[i];
+			}
+			//add space
+			rev+=" ";
+		}
+		System.out.println(rev);
+	}
+}
+
+Q)Write a java program to display duplicate characters from given string?
+
+input:
+	google 
+
+output:
+	o g 
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+
+			if(characters.contains(current))
+			{
+				if(!duplicates.contains(current))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+
+		System.out.println(duplicates);
+	}
+}
+
+
+Q)Write a java program to display unique/distinct characters from given string?
+
+input:
+	google 
+
+output:
+	g o l e 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+
+			if(characters.contains(current))
+			{
+				if(!duplicates.contains(current))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+
+		System.out.println(characters);
+	}
+}
+
+Q)Write a java program to display most repeating character in a given string?
+
+input:
+	ihubtalentingoogletest
+
+output:
+	t repeating for 4 times 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalentingoogletest";
+
+		int maxCount=0;
+		char alphabet=' ';
+
+		for(int i=0;i<str.length();i++)
+		{
+			int cnt=0;
+
+			for(int j=0;j<str.length();j++)
+			{
+				if(str.charAt(i) == str.charAt(j))
+				{
+					cnt++;
+				}
+			}
+			if(cnt>maxCount)
+			{
+				maxCount=cnt;
+				alphabet=str.charAt(i);
+			}
+		}
+		System.out.println(alphabet+" is repeating for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to display given string is anagram or not?
+
+input:
+	str1 = silent 
+	str2 = listen 
+
+output:
+	It is a Anagram String
+
+ex:
+
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1 = "silent"; 
+		String str2 = "listen";
+		
+		//converting string to char array
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t 
+
+		boolean flag=true;
+
+		for(int i=0;i<carr1.length && i<carr2.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				flag=false;
+				break;
+			}
+		}
+
+		if(flag==true)
+			System.out.println("It is Anagram string");
+		else
+			System.out.println("It is not Anagram string");
+	}
+}
+
+
+Q)Write a java program to display the string in a given format?
+
+input:
+	A1B2C3D4
+
+output:
+	ABBCCCDDDD
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="A1B2C3D4";
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))
+			{
+				System.out.print(str.charAt(i));
+			}
+			else
+			{
+			int a=Character.getNumericValue(str.charAt(i));
+
+				for(int j=1;j<a;j++)
+				{
+					System.out.print(str.charAt(i-1));	
+				}
+			}
+		}
+	}
+}
+
+Assignment
+===========
+Q)Write a java program to display the string in given format?
+
+input:
+	ABBCCCDDDD
+output:
+	A1B2C3D4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

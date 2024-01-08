@@ -1,0 +1,487 @@
+2)Userdefined Exceptions
+=========================
+Exceptions which are created by the user based on the application requirements are called userdefined exceptions or customized exceptions.
+ex:	
+	NotPracticingException 
+	NoInterestInCourseException 
+	NoBalanceInAccountException
+	TooYoungException
+	TooOldException 
+	and etc.
+
+ex:
+---
+import java.util.Scanner;
+class TooYoungException extends RuntimeException 
+{
+	TooYoungException(String s)
+	{
+		super(s);
+	}
+}
+class TooOldException extends RuntimeException 
+{
+	TooOldException(String s)
+	{
+		super(s);
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the age :");
+		int age=sc.nextInt();
+
+		if(age>=18)
+			throw new TooOldException("U r eligible to vote");
+		else
+		throw new TooYoungException("U r not eligible to vote");
+
+	}
+}
+
+
+Generics
+=========
+Arrays are typesafe. It means we can provide guarantee that what type of elements are present in array.
+
+If requirement is there to store string values then it is recommanded to use String[] array.
+ex:
+	String[] sarr=new String[10];
+	sarr[0]="hi";
+	sarr[1]="hello";
+	sarr[2]="bye";
+	sarr[3]=10;  ---> invalid 
+
+At the time of retrieving the data from array, we don't need to perform any typecasting.
+ex:
+	String[] sarr=new String[10];
+	sarr[0]="hi";
+	sarr[1]="hello";
+	sarr[2]="bye";
+	-
+	-
+	String val=sarr[0];
+
+Collections are not typesafe. It means we can't provide guarantee that what type of elements are present in Collections.
+
+If requirement is there to store String values then it is never recommanded to use ArrayList because we won't get any compile time error or runtime error but some times our program get failure.
+
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("hello");
+	al.add("bye");
+	al.add(10); 
+
+At the time of retrieving the data from collections, compulsary we need to perform typecasting.
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("hello");
+	al.add("bye");
+	al.add(10); 
+	-
+	-
+	String val=(String)al.get(0);
+
+To overcome above limitations Sun Micro system introduced Generics concept in 1.5 version.
+
+The main objective of generics are.
+
+1) To make Collections as typesafe.
+
+2) To avoid typecasting problem.
+
+
+
+Q)What is the difference between Arrays and Collections?
+
+Arrays					Collections
+--------------				----------
+It is a collection of homogeneous 	It is a collection of homogeneous 
+data elements. 				and hetrogeneous data elements.
+
+Arrays are fixed in size.		Collections are growable in nature.
+
+Performance point of view arrays 	Memory point of view Collections are 
+are recommanded to use.			recommanded to use.
+
+It can hold primitive types and object	It can hold only object types.
+types.
+
+Arrays are not implemented based on 	Collections are implemented based on
+data structure concept.Hence we can't 	data structure concept.Hence we can
+expect any readymade method.For every	expect readymade methods.
+logic we need to write the code 	
+explictly.
+
+java.util package
+=================
+
+Collection
+===========
+A Collection is an interface which is present in java.util package.
+
+It is a root interface for entire Collection Framework.
+
+If we want to represent group of individual objects in a single entity then we need to use Collection interface.
+
+Collection interface contains following methods.
+
+ex:
+  public abstract boolean add(E);
+  public abstract boolean remove(java.lang.Object);
+  public abstract boolean containsAll(java.util.Collection<?>);
+  public abstract boolean addAll(java.util.Collection<? extends E>);
+  public abstract boolean removeAll(java.util.Collection<?>);
+  public boolean removeIf(java.util.function.Predicate<? super E>);
+  public abstract boolean retainAll(java.util.Collection<?>);
+  public abstract void clear();
+  public abstract boolean equals(java.lang.Object);
+  public abstract int hashCode();
+  public java.util.Spliterator<E> spliterator();
+  public java.util.stream.Stream<E> stream();
+  and etc.
+
+List
+=====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are allowed and order is preserved then we need to use List interface.
+
+Diagram: java32.1
+
+
+ArrayList
+-----------
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements Serializable, Cloneable and RandomAccess interface.
+
+If our frequent operation is a retrieval operation then ArrayList is a best choice.
+
+ex:1
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		System.out.println(al);//[one,two,three]
+		al.add("one");
+		System.out.println(al);//[one,two,three,one]
+		al.add(10);
+		System.out.println(al); //[one,two,three,one,10]
+		al.add(null);
+		System.out.println(al);//[one,two,three,one,10,null]
+	}
+}
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		System.out.println(al);//[one,two,three]
+		al.add("one");
+		System.out.println(al);//[one,two,three,one]
+		al.add(null);
+		System.out.println(al);//[one,two,three,one,null]
+	}
+}
+
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al=new ArrayList<String>();
+		al.add(new String("one"));
+		al.add(new String("two"));
+		al.add(new String("three"));
+		System.out.println(al);//[one,two,three]
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<String> l=new ArrayList<String>();
+		l.add("one");
+		l.add("two");
+		l.add("three");
+		System.out.println(l);//[one,two,three]
+
+		for(int i=0;i<l.size();i++)
+		{
+			System.out.println(l.get(i));
+		}
+		
+	}
+}
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<String> l=new ArrayList<String>();
+		l.add("one");
+		l.add("two");
+		l.add("three");
+		System.out.println(l);//[one,two,three]
+		
+		System.out.println(l.isEmpty()); //false 
+
+		l.remove("two");
+		System.out.println(l);//[one,three]
+
+		l.clear();
+		System.out.println(l);//[]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al1=new ArrayList<String>();
+		al1.add("one");
+		al1.add("two");
+		al1.add("three");
+		System.out.println(al1);//[one,two,three]
+
+		ArrayList<String> al2=new ArrayList<String>();
+		al2.add("raja");
+		System.out.println(al2);//[raja]
+
+		al2.addAll(al1);
+		System.out.println(al2);//[raja,one,two,three]
+
+		System.out.println(al2.containsAll(al1));//true 
+
+		al2.removeAll(al1);
+		System.out.println(al2);//[raja]
+
+	}
+}
+
+LinkedList 
+------------
+The underlying data structure is doubly LinkedList.
+
+Duplicate objects are allowed.
+
+Order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements Serializable, Cloneable and Deque interface.
+
+If our frequent operation is adding and removal in the middle then LinkedList is a best choice.
+
+LinkedList contains following methods.
+ex:
+	addFirst()
+	addLast()
+	getFirst()
+	getLast()
+	removeFirst()
+	removeLast() 
+	and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

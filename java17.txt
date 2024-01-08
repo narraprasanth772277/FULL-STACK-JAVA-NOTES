@@ -1,0 +1,696 @@
+ ex:
+----
+* * * * 
+*     *
+*     *
+* * * * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==1||i==4 || j==1 || j==4)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+ex:
+----
+* - - - 
+- * - - 
+- - * - 
+- - - * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==j)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+ex:
+-----
+* - - - * 
+- * - * -
+- - * - -
+- * - * - 
+* - - - * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==j || i+j==6)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+Left Side LOOP patterns
+=======================
+1)
+1
+2 2 
+3 3 3 
+4 4 4 4 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+2)
+1 
+1 2 
+1 2 3 
+1 2 3 4
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+3)
+4 4 4 4 
+3 3 3 
+2 2 
+1 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+4)
+
+* 
+* * 
+* * * 
+* * * *
+* * * 
+* * 
+* 
+
+ex
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//ascending
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+		//descending
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+5)
+1
+2 3 
+4 5 6
+7 8 9 0
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		int k=1;
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				if(k<=9)
+					System.out.print(k+" ");
+				else
+					System.out.print("0");
+				k++;
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+6)
+A 
+B B 
+C C C 
+D D D D 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+
+
+7)
+1
+2 1 
+1 2 3
+4 3 2 1 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//odd rows
+			if(i%2!=0)
+			{
+				for(int j=1;j<=i;j++)
+				{
+					System.out.print(j+" ");
+				}
+			}
+			else
+			{
+				for(int j=i;j>=1;j--)
+				{
+					System.out.print(j+" ");
+				}
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+8)
+1
+2#1
+1#2#3
+4#3#2#1
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//odd rows
+			if(i%2!=0)
+			{
+				for(int j=1;j<=i;j++)
+				{
+					if(j>1)
+					System.out.print("#"+j);
+					else
+					System.out.print(j);
+
+				}
+			}
+			else
+			{
+				for(int j=i;j>=1;j--)
+				{
+					if(j>1)
+					System.out.print(j+"#");
+					else
+					System.out.print(j);
+				}
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+
+
+
+Assignment
+----------
+Q)Write a java program to display loop patter for prime numbers?
+
+2
+3  5
+7  11 13
+17 19 23 29
+
+
+Right Side loop patterns
+========================
+1)
+      1
+    2 2 
+  3 3 3 
+4 4 4 4
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+2)
+
+4 4 4 4
+  3 3 3 
+    2 2 
+      1
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+3)
+      *
+    * *
+  * * *
+* * * *
+  * * *
+    * * 
+      * 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//ascending 
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+		//decending 
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+Pyramid loop patterns
+======================
+1)
+      1
+    1 2 1 
+  1 2 3 2 1 
+1 2 3 4 3 2 1 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+2)
+1 2 3 4 3 2 1 
+  1 2 3 2 1 
+    1 2 1 
+      1
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+3)
+      *
+    * * * 
+  * * * * *
+* * * * * * * 
+  * * * * *
+    * * * 
+      * 
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+
+		//descending
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

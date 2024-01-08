@@ -1,0 +1,378 @@
+History of Java
+===============
+In 1990, Sun Micro System took one project to develop a software called consumer electronic device which can be control by a remote like setup box.
+That time project was called Stealth project and later it was renamed to Green project.
+
+James gosling, Mike Sheradin and Patrick Naughton were there to develop the project and they have met in a place called Aspan/Colarado to start with work with Graphic System. James Gosling decided to use C and C++ languages to develop the project.But the problem what they have faced is , C and C++ languages are system dependent. Then James Gosling decided why don't we create our own programming language which is system independent.
+
+In 1991, They have developed one programming language called an OAK. OAK means strength, itself is a coffee seed name and it is a national tree for many 
+countries like Germany, France, USA and etc.
+
+Later in 1995, They have renamed OAK to Java. Java is island of an Indonasia
+where first coffee of seed was produced and during the development of project they were consuming lot of coffee's.Hence symbol of java is a cup of coffee with saucer.
+
+
+Identifiers
+============
+A name in java is called identifier.
+
+It can be variable, method name, class name or label name.
+
+ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			int  i = 10;
+
+			System.out.println(i);
+		}
+	}
+
+	Here Test, main , args and i are identifiers.
+
+Rules to declare an identifiers
+--------------------------------
+Rule1:
+------
+	Identifier will accept following characters.
+	ex:
+		A-Z
+		a-z
+		0-9
+		_
+		$
+Rule2:
+-----
+	If we take other characters then we will get compile time error.
+	ex:
+		int  empId; //valid 
+		int  emp_id; //valid
+		int  emp$sal; //valid
+		int  dept#No; //invalid  
+
+Rule3:
+----
+	Every identifier must and should starts with alphabet, underscore or 
+	dollar symbol but not with digits.
+	ex:
+		int  a1234; //valid 
+		int  _abcd; //valid 
+		int  $=20;  //valid  
+		int  1abcd; //invalid 
+Rule4:
+------
+	Every identifier is a case sensitive.
+	ex:
+		int number;
+		int NUMBER;
+		int NumBer;
+
+Rule5:
+------
+	We can't take reserved words as an identifier.	
+	ex:
+		int  if; //invalid 
+		int  for; //invalid
+		int public; //invalid 
+
+Rule6:
+------
+	There is no length limit for an identifier but it is not recommanded
+	to take more then 15 characters.
+
+Rule7:
+-----
+	Identifier can be alpha numeric character also.
+	ex:
+		int  emp_Id1;
+
+Reserved Words
+=============
+There are some identifiers which are reserved to associate some functionality or meaning such type of identifiers are called reserved words.
+
+Java supports 53 reserved words.
+
+All reserved words we need to declare under lowercase letters only.
+
+In java reserved words are divided into two types.
+
+Diagram: java5.1		
+
+Used keywords with respect to class
+-----------------------------
+package
+import
+enum
+class
+interface
+extends
+implements 
+
+Used keywords with respect to object
+------------------------
+new 
+instanceof
+this
+super
+
+Used keywords with respect to datatypes
+------------------------------------
+byte
+short
+int
+long
+float
+double
+boolean
+char 
+
+Used keywords with respect to modifiers
+-----------------------------
+default
+public 
+private 
+protected
+final
+abstract
+static
+strictfp
+synchronized
+native
+transient 
+volatile 
+
+Used keywords with respect to return type
+-----------------------
+void 
+
+Used keywords with respect to flow control
+----------------------------------
+if
+else
+switch
+case 
+break
+continue
+do
+while
+for 
+
+Used kewords with respect to exception handling
+----------------------
+try
+catch
+finally
+throw
+throws
+assert 
+
+Interview questions
+====================
+
+Diagram : java5.2
+
+
+Java
+=======
+JDK		:	1.8v 
+
+Version		:	Java 8 
+
+Creator		:	James Gosling 
+
+Vendor		:	Oracle Corporation
+
+Open source	:	Open source 
+
+website		:	www.oracle.com/in/java
+
+Download link   : 
+
+https://drive.google.com/file/d/16fr2McV_Bex0NYlOdcVfC4k2gwUUNqzq/view?usp=drive_link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

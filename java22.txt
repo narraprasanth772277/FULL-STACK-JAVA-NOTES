@@ -1,0 +1,317 @@
+Q)Write a java program to display below loop pattern?
+
+2
+3  5 
+7  11 13
+17 19 23 29
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int num=2;
+
+		//rows 
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				//prime logic
+				while(true)
+				{
+					boolean flag=true;
+
+					for(int k=2;k<=num/2;k++)
+					{
+						if(num%2==0)
+						{
+							flag=false;
+							break;
+						}
+					}
+					if(flag==true)
+					{
+						System.out.print(num+" ");
+						num++;
+						break;
+					}
+					num++;
+				}
+				
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+Q)Write a java program to display permutation of given string? 
+
+input:
+	ABC
+
+output:
+	ABC
+	ACB
+	BAC
+	BCA
+	CAB
+	CBA
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABC";
+		//caller method 
+		permutations(str.toCharArray(),0);
+	}
+
+	//callie method
+	public static void permutations(char[] arr,int fi)
+	{
+		if(fi==arr.length-1)
+		{
+			System.out.println(arr);
+			return;
+		}
+		for(int i=fi;i<arr.length;i++)
+		{
+			swap(arr,i,fi);
+			permutations(arr,fi+1);
+			swap(arr,i,fi);
+		}
+	}
+
+	//swapping method
+	public static void swap(char[] arr,int i,int fi)
+	{
+		char temp=arr[i];
+		arr[i]=arr[fi];
+		arr[fi]=temp;
+	}
+}
+
+Encapsulation
+==============
+The process of encapsulting or grouping variables and it's assoicate methods in a single entity is called encapsulation.
+
+Diagram: java22.1
+
+A class is said to be encapsulated class if it supports data hiding and abstraction.
+
+In encapsulation for every variable we need to write setter and getter method.
+
+Diagram: java22.2
+
+The main advantages of encapsulation are.
+
+1) It gives security.
+
+2) Enhancement becomes more easy.
+
+3) It provides flexibility to the enduser.
+
+4) It improves maintainability of an application. 
+
+The main disadvantage of encapsulation is , it will increase the length of our code and slow down the execution process.
+
+Note:
+-----
+Abstraction will hide the data and Encapsulation will protect the data.
+
+Approach1
+----------
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods 
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+Approach2
+----------
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods 
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+Interview Question
+==================
+Q) What is the difference between POJO class and Java Bean class?
+
+POJO class (Plain Old Java Object)
+-----------
+A class is said to be a pojo class if it supports following two properities.
+
+1) All variables must be private.
+
+2) All variables must have setter and getter method. 
+
+Java Bean class
+-------------
+A class is said to be a java bean class if it supports following four properities.
+
+1) A class should be public.
+
+2) A class should have atleast zero argument constructor.
+
+3) All variables must be private.
+
+4) All variables must have setter and getter method. 
+
+Note:
+----
+Every java bean class is a pojo class but every pojo class is not a java bean class.
+
+
+Q)What is tightly encapsulated class?
+
+A class is said to be tightly encapsulated class if and only if all the variables of that class must be private.We should not see , either these variables have setter and getter methods or not.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

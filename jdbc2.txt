@@ -1,0 +1,312 @@
+Every JDBC application is a two-tier application.Where java with JDBC code acts like a frontend/Tier1/Layer1 and database software acts like a backend/Tier2/Layer2.
+
+The one which is visible to the enduser to perform some operations is called frontend.
+
+The one which is not visible to the enduser but it performs operations based on the instructions given by frontend is called backend.
+
+JDBC Driver
+===========
+JDBC driver acts like a bridge between java application and database software.
+
+It will convert java calls to database calls and vice versa.
+
+Here calls means instructions.
+
+Diagram: jdbc2.1
+
+
+ODBC Driver
+============
+VBScript, D2k, Perl and etc uses ODBC driver to interact with database software.
+
+Diagram: jdbc2.2
+
+ODBC driver developed in c language by taking the support of pointers.But java does not support pointers.To overcome this limitation Sun Micro System introduced JDBC drivers exclusively.
+
+We will get JDBC softwares from following parties.
+
+1) Sun Micro System (creator of jdbc driver)
+
+2) Database Vendor 
+
+3) Third party Vendor 
+
+We will get ODBC softwares from following parties.
+
+1) Xopen company (creator of odbc driver)
+
+2) Database vendor 
+
+3) Third party vendor 
+
+
+Q)What is JDBC?
+
+JDBC is a open technology given by Sun Micro System having set of rules and guidelines to 
+develop JDBC drivers to interact with multiple database softwares.
+
+
+Q)What is ODBC?
+
+ODBC is a open technology given by Xopen company having set of rules and guidelines to 
+develop ODBC drivers to interact with multiple database softwares.
+
+
+To use any JDBC driver we need to register with DriverManager service.
+
+Every JDBC application contains one built-in service called DriverManager service.
+
+
+Class.forName()
+===============
+It is highly recommanded to used Class.forName() method to register JDBC driver with DriverManager service.
+
+It is used to load the driver class but it won't create an object.
+ex:
+	Class.forName("driver-class-name");
+
+
+Connection object
+==================
+To perform any operation in a database we need to establish the connection with database.
+
+Once the work with database is completed we need to close the Connection with database.
+
+Connection is an interface which is present in java.sql package.
+
+It is an object of underlying supplied java class which implements java.sql.Connection interface.
+
+DriverManager.getConnection()
+=============================
+DriverManager is a class which present in java.sql package.
+
+A getConnection() static method is used to interact with database software and returns JDBC Connection object representing connectivity between java application and database software.
+
+ex:
+	Connection con=DriverManager.getConnection("url");
+
+	
+Statement object
+=================
+Statement is an interface which is present in java.sql package.
+
+It acts like a vehicle between java application and database software.
+
+It is used to sends and executes SQL query in database software.
+
+We can create Statement object as follow.
+ex:
+	Statement st=con.createStatement();
+
+
+ResultSet object
+================
+Every ResultSet object contains two positions.
+
+1) BFR (Before First Record/Row)
+
+2) ALR (After Last Record/Row)
+
+By default record pointer points to BFR position.
+
+Every record ResultSet having 1 as base index and every column of record ResultSet having 1 as base index.
+
+rs.next()
+=========
+It will move the record pointer to next position from current position.
+If next position is a record then it will return true.
+If next position is ALR then it will return false.
+We can read the values of record ResultSet by using getXxx() method with index numbers or column names.
+Here getXxx() methods means getInt(),getString(),getFloat(),getDouble() and etc.
+
+Diagram: jdbc2.3
+
+
+Types of Queries in JDBC
+=========================
+According to JDBC point of view , we have two types of queries.
+
+1)Select Query 
+
+2)Non-Select Query 
+
+1)Select Query 
+----------------
+It will return bunch of records from database software.
+ex:
+	select * from emp;
+
+A JDBC Statement object gave executeQuery() method to execute select query.
+ex:
+	ResultSet rs=st.executeQuery("select * from emp");
+
+2) Non-Select Query
+------------------
+IT will return numeric value representing number of records effected in a database table.
+ex:
+	delete from emp;
+
+A JDBC Statement object gave executeUpdate() method to execute non-select query.
+ex:
+	int result=st.executeUpdate("delete from emp");
+
+
+Types of Drivers in JDBC
+========================
+We have following four types of JDBC drivers.
+
+1) Type1 JDBC Driver / JDBC-ODBC Bridge Driver 
+
+2) Type2 JDBC Driver / Native API  
+
+3) Type3 JDBC Driver / Net Protocol
+
+4) Type4 JDBC Driver / Native Protocol 
+
+
+Type4 JDBC Driver / Native Protocol 
+====================================
+
+Drive Class 	:	oracle.jdbc.driver.OracleDriver
+			------------------ ------------
+				pkg name 	classname 
+
+
+Driver URL 	:	jdbc:oracle:thin:@localhost:1521:XE 
+			-----------------  |         |    |
+			sub protocol   hostname   portno  logical db_name
+
+
+Database username : 	system
+
+
+Database password :	admin 
+
+Steps to develop JDBC Application
+==================================
+We have six steps to develop JDBC Application.
+
+1) Register JDBC driver with DriverManager service.
+
+2) Establish the connection with database software.
+
+3) Create Statement object.
+
+4) Sends and Executes SQL Query in database software.
+
+5) Gather the result from database software to process the result.
+
+6) Close all connection objects.
+
+
+Eclipse
+============
+IDE		:	JEE
+
+Environment	:	Java                                      
+
+Flavour		:	Kepler,Indigo,Luna,Mars and etc.
+
+File Format	:	zip file
+
+Vendor		:	Eclipse Foundation 
+
+website		:	www.eclipse.org
+
+Download link	:	
+https://drive.google.com/file/d/1PZYYpd8RKpLWXe1TfHWaOQfNjOq1OIzy/view?usp=drive_link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
